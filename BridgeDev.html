@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BridgeDev - App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="app-container">
+
+    <div id="tela-cadastro">
+        <main class="content-area">
+            <section class="welcome-header">
+                <div class="logo-container">
+                    <h1 class="logo-text">Bridge<span>Dev</span></h1>
+                </div>
+                <p class="bridge-subtitle">Conectando você ao futuro</p>
+            </section>
+
+            <section class="form-card">
+                <form onsubmit="event.preventDefault(); irParaAula()">
+                    <div class="input-group">
+                        <label for="nome">NOME COMPLETO</label>
+                        <input type="text" id="nome" placeholder="Seu nome" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">E-MAIL</label>
+                        <input type="email" id="email" placeholder="email@exemplo.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="senha">SENHA</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="password-input" placeholder="********" required>
+                            <span class="eye-icon" onclick="togglePassword('password-input', this)">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <button type="submit" class="btn-primary-modern">
+                            Criar Conta <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="social-login">
+                <p>OU CADASTRE COM</p>
+                <div class="social-grid">
+                    <button type="button" class="btn-social google"><i class="fab fa-google"></i> Google</button>
+                    <button type="button" class="btn-social instagram"><i class="fab fa-instagram"></i> Instagram</button>
+                    <button type="button" class="btn-social facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+                    <button type="button" class="btn-social linkedin"><i class="fab fa-linkedin-in"></i> LinkedIn</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="tela-aula" style="display: none;">
+        <header class="header-minimal">
+            <span class="logo-icon-minimal">BridgeDev</span>
+        </header>
+
+        <nav class="nav-tabs">
+            <button type="button" class="tab-item" onclick="irParaCadastro()">Cadastro</button>
+            <button type="button" class="tab-item active">Aula</button>
+            <button type="button" class="tab-item" onclick="irParaSelo()">Selo</button>
+            <button type="button" class="tab-item" onclick="irParaConclusao()">Conclusão</button>
+        </nav>
+
+        <main class="main-content-scrollable">
+            <section class="video-section-minimal">
+                <div class="video-placeholder-dark">
+                    <button type="button" class="play-btn-overlay"></button>
+                </div>
+            </section>
+
+            <section class="description-section-minimal">
+                <label class="label-tech">MODULO 01 // O PONTO DE PARTIDA</label>
+                <h3 style="color: var(--azul-profundo); margin-bottom: 10px; font-size: 18px;">Fundamentos da Linguagem Java</h3>
+                <p class="lesson-text-minimal">Toda grande aplicação, do banco que você usa até os servidores da NASA, começou com um comando simples. Nesta aula, vamos desvendar o "esqueleto" básico de um programa Java.</p>
+            </section>
+
+            <div style="margin-top: 20px; padding: 18px; background: #f8fafc; border-radius: 12px; border: 1px dashed var(--accent-gray);">
+                <p style="font-size: 13px; color: var(--cinza-carbono); line-height: 1.5;">
+                    <strong style="display: block; margin-bottom: 8px;">O que você vai dominar hoje:</strong>
+                    • Como criar seu primeiro arquivo <code>.java</code><br>
+                    • Onde escrever o código para ele "ganhar vida"<br>
+                    • Como exibir sua primeira mensagem na tela
+                </p>
+            </div>
+
+            <div class="next-step-container">
+                <button type="button" class="btn-next-step" onclick="irParaSelo()">
+                    <div class="btn-content">
+                        <span class="btn-label">PROSSEGUIR PARA</span>
+                        <span class="btn-title">RESGATAR MEU SELO</span>
+                    </div>
+                    <div class="btn-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <div id="tela-selo" style="display: none;">
+        <header class="header-minimal">
+            <span class="logo-icon-minimal">BridgeDev</span>
+        </header>
+
+        <nav class="nav-tabs">
+            <button type="button" class="tab-item" onclick="irParaCadastro()">Cadastro</button>
+            <button type="button" class="tab-item" onclick="irParaAula()">Aula</button>
+            <button type="button" class="tab-item active">Selo</button>
+            <button type="button" class="tab-item" onclick="irParaConclusao()">Conclusão</button>
+        </nav>
+
+        <main class="main-content-scrollable">
+            <header class="selo-header">
+                <div class="stars-row">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <h2>PARABÉNS!</h2>
+                <p>Você conquistou seu primeiro selo</p>
+            </header>
+
+            <figure class="selo-card-container">
+                <div class="selo-main-card">
+                    <div class="badge-circle">
+                        <div class="badge-inner-icon"><i class="fas fa-medal"></i></div>
+                    </div>
+                    <figcaption>
+                        <h3 class="badge-name">INICIANTE EM JAVA</h3>
+                        <p class="badge-subtitle">Completou: Fundamentos Da Linguagem Java</p>
+                    </figcaption>
+                    <time datetime="2026-02-23" class="date-frame">23 FEV 2026</time>
+                </div>
+            </figure>
+
+            <section class="stats-box clean-version">
+                <p class="stats-title">CONQUISTAS DO CURSO</p>
+                <ul class="stats-list">
+                    <li><span class="circle">1</span><span class="label">Aulas</span></li>
+                    <li><span class="circle">12</span><span class="label">Horas</span></li>
+                    <li><span class="circle">1</span><span class="label">Selos</span></li>
+                </ul>
+            </section>
+
+            <footer class="actions-group">
+                <button type="button" class="btn-next-step primary-action" onclick="irParaConclusao()">
+                    <div class="btn-content">
+                        <span class="btn-label">CONTEÚDO LIBERADO</span>
+                        <span class="btn-title">IR PARA CONCLUSÃO</span>
+                    </div>
+                    <div class="btn-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                </button>
+            </footer>
+        </main>
+    </div>
+
+    <div id="tela-conclusao" style="display: none;">
+        <header class="header-minimal">
+            <strong class="logo-icon-minimal">BridgeDev</strong>
+        </header>
+
+        <nav class="nav-tabs">
+            <button type="button" class="tab-item" onclick="irParaCadastro()">Cadastro</button>
+            <button type="button" class="tab-item" onclick="irParaAula()">Aula</button>
+            <button type="button" class="tab-item" onclick="irParaSelo()">Selo</button>
+            <button type="button" class="tab-item active">Conclusão</button>
+        </nav>
+
+        <main class="main-content-scrollable">
+            <section class="conclusao-hero">
+                <figure class="conquista-emblema">
+                    <div class="estrela-poligonal">
+                        <span class="centro-dourado"></span>
+                    </div>
+                </figure>
+                <h2>MISSÃO CUMPRIDA!</h2>
+                <p>Você finalizou a sua aula de Java</p>
+            </section>
+
+            <article class="certificate-premium">
+                <div class="cert-inner">
+                    <header>
+                        <i class="fas fa-certificate cert-main-icon" aria-hidden="true"></i>
+                        <h3>CERTIFICADO DE CONCLUSÃO</h3>
+                    </header>
+                    <p>Este documento comprova sua dedicação no módulo de Fundamentos Da Linguagem Java.</p>
+                    <footer>
+                        <dl class="cert-data">
+                            <div><dt>ID DO ALUNO</dt><dd>#BRG-2026-JAVA</dd></div>
+                            <div><dt>STATUS</dt><dd>VERIFICADO</dd></div>
+                        </dl>
+                    </footer>
+                </div>
+            </article>
+
+            <footer class="actions-group">
+                <button type="button" class="btn-next-step" onclick="alert('Baixando...')">
+                    <div class="btn-content">
+                        <span class="btn-label">DOWNLOAD PDF</span>
+                        <span class="btn-title">BAIXAR MEU CERTIFICADO</span>
+                    </div>
+                    <div class="btn-icon"><i class="fas fa-download"></i></div>
+                </button>
+                <button type="button" class="btn-outline btn-linkedin-modern" style="display: flex; gap: 10px; width: 100%; margin-top: 10px;">
+                    <i class="fab fa-linkedin-in"></i>
+                    <span>Compartilhar no LinkedIn</span>
+                </button>
+            </footer>
+        </main>
+    </div>
+
+</div>
+
+<script>
+    // --- NAVEGAÇÃO ENTRE TELAS ---
+    function irParaCadastro() {
+        esconderTodas();
+        document.getElementById('tela-cadastro').style.display = 'block';
+    }
+
+    function irParaAula() {
+        esconderTodas();
+        document.getElementById('tela-aula').style.display = 'block';
+    }
+
+    function irParaSelo() {
+        esconderTodas();
+        document.getElementById('tela-selo').style.display = 'block';
+    }
+
+    function irParaConclusao() {
+        esconderTodas();
+        document.getElementById('tela-conclusao').style.display = 'block';
+    }
+
+    // --- FUNÇÕES DE SUPORTE ---
+    function esconderTodas() {
+        document.getElementById('tela-cadastro').style.display = 'none';
+        document.getElementById('tela-aula').style.display = 'none';
+        document.getElementById('tela-selo').style.display = 'none';
+        document.getElementById('tela-conclusao').style.display = 'none';
+    }
+
+    // --- UTILITÁRIOS DE INTERFACE ---
+    function togglePassword(inputId, element) {
+        const input = document.getElementById(inputId);
+        const icon = element.querySelector('i');
+        input.type = input.type === "password" ? "text" : "password";
+        icon.classList.toggle('fa-eye');
+        icon.classList.toggle('fa-eye-slash');
+    }
+</script>
+
+</body>
+</html>
